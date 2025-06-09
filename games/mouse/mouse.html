@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Whack a Mouse</title>
+  <link rel="stylesheet" href="mouse.css">
+</head>
+<body>
+  <div id="container">
+    <div id="login">
+      <h2>🐭 Whack a Mouse</h2>
+      <input type="text" id="username" placeholder="Nhập tên của bạn" />
+      <button id="startBtn">Bắt đầu chơi</button>
+    </div>
+
+    <div id="game">
+      <div id="gameLayout">
+        <div id="leftPanel">
+          <div id="scoreBar">
+            <div id="score">Điểm: 0</div>
+            <div id="time">Thời gian: 30s</div>
+            <button id="pauseBtn">Pause</button>
+          </div>
+          <div class="game-board">
+            <div class="hole" data-index="0"></div>
+            <div class="hole" data-index="1"></div>
+            <div class="hole" data-index="2"></div>
+            <div class="hole" data-index="3"></div>
+            <div class="hole" data-index="4"></div>
+            <div class="hole" data-index="5"></div>
+            <div class="hole" data-index="6"></div>
+            <div class="hole" data-index="7"></div>
+            <div class="hole" data-index="8"></div>
+          </div>
+        </div>
+        
+        <div id="rightPanel">
+          <div id="instructionsBox">
+            <h3>🎯 Hướng dẫn</h3>
+            <div class="instruction-item">
+              <span class="instruction-label">🐭 Chuột</span>
+              <span>+1 điểm</span>
+            </div>
+            <div class="instruction-item">
+              <span class="instruction-label">🐀 Chuột cống</span>
+              <span>-1 điểm</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="leaderboardOverlay">
+    <div id="leaderboardBox">
+      <h2>🏆 Bảng Xếp Hạng</h2>
+      <table id="leaderboardTable">
+        <thead>
+          <tr><th>Hạng</th><th>Tên</th><th>Điểm</th></tr>
+        </thead>
+        <tbody id="leaderboardBody"></tbody>
+      </table>
+      <button id="restartBtn">Chơi lại</button>
+    </div>
+  </div>
+
+  <audio id="hitSound" preload="auto">
+    <source src="hit.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="mouse.js"></script>
+</body>
+</html>

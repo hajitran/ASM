@@ -1,0 +1,220 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(135deg, #2e7d32 0%, #4caf50 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  user-select: none;
+}
+
+.screen {
+  display: none;
+  width: 100%;
+  max-width: 700px;
+  text-align: center;
+}
+
+.screen.active {
+  display: block;
+}
+
+#loginScreen {
+  background: rgba(46, 125, 50, 0.95);
+  padding: 40px;
+  border-radius: 20px;
+  border: 3px solid #66bb6a;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  backdrop-filter: blur(10px);
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 30px;
+  color: #c8e6c9;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+input[type=text] {
+  font-size: 1.2rem;
+  padding: 15px 20px;
+  border-radius: 12px;
+  border: 2px solid #66bb6a;
+  width: 280px;
+  margin-bottom: 25px;
+  background: rgba(255,255,255,0.95);
+  color: #2e7d32;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input[type=text]:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 15px rgba(102, 187, 106, 0.3);
+}
+
+button {
+  font-size: 1.1rem;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 12px;
+  margin: 8px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+  transition: all 0.3s ease;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+}
+
+button:disabled {
+  background: #a5d6a7;
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.info-section {
+  margin-top: 30px;
+}
+
+.info-section h2 {
+  color: #c8e6c9;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+#leaderboard {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 400px;
+  max-height: 200px;
+  overflow-y: auto;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+}
+
+#leaderboard li {
+  padding: 12px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  color: #e8f5e9;
+  font-weight: 500;
+}
+
+#leaderboard li:nth-child(1) { background: rgba(255, 215, 0, 0.3); color: #ffd700; }
+#leaderboard li:nth-child(2) { background: rgba(192, 192, 192, 0.3); color: #c0c0c0; }
+#leaderboard li:nth-child(3) { background: rgba(205, 127, 50, 0.3); color: #cd7f32; }
+
+#gameScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+#gameHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 15px 25px;
+  background: rgba(46, 125, 50, 0.9);
+  border-radius: 12px;
+  border: 2px solid #66bb6a;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+#scoreDisplay {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #c8e6c9;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+#playerInfo {
+  font-size: 1rem;
+  color: #a5d6a7;
+}
+
+#playerDisplay {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+canvas {
+  background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+  border: 4px solid #66bb6a;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+#gameControls {
+  display: flex;
+  gap: 15px;
+}
+
+#gameInstructions {
+  background: rgba(46, 125, 50, 0.8);
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid #66bb6a;
+  margin-top: 10px;
+}
+
+#gameInstructions p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #c8e6c9;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  input[type=text] {
+    width: 250px;
+    font-size: 1rem;
+  }
+  
+  canvas {
+    width: 350px;
+    height: 350px;
+  }
+  
+  #gameHeader {
+    padding: 10px 15px;
+  }
+  
+  #scoreDisplay {
+    font-size: 1.2rem;
+  }
+  
+  button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}

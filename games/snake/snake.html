@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🐍 Snake Game</title>
+  <link rel="stylesheet" href="snake.css" />
+</head>
+<body>
+  <div id="loginScreen" class="screen active">
+    <h1>🐍 Snake Game</h1>
+    <input type="text" id="playerName" placeholder="Nhập tên của bạn" maxlength="12" />
+    <button id="startBtn" disabled>🎮 Bắt đầu</button>
+    <div class="info-section">
+      <h2>🏆 Bảng xếp hạng</h2>
+      <ol id="leaderboard"></ol>
+    </div>
+  </div>
+
+  <div id="gameScreen" class="screen">
+    <div id="gameHeader">
+      <div id="scoreDisplay">Điểm: 0</div>
+      <div id="playerInfo">Player: <span id="playerDisplay"></span></div>
+    </div>
+    <canvas id="game" width="600" height="600"></canvas>
+    <div id="gameControls">
+      <button id="restartGameBtn">🔁 Chơi lại</button>
+      <button id="exitGameBtn">⏹️ Thoát</button>
+    </div>
+    <div id="gameInstructions">
+      <p>Sử dụng phím mũi tên để điều khiển rắn</p>
+    </div>
+  </div>
+
+  <script src="snake.js"></script>
+</body>
+</html>

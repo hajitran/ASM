@@ -1,0 +1,258 @@
+body {
+  margin: 0;
+  padding: 10px;
+  background: linear-gradient(to bottom, #001122, #003366);
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+#loginPanel {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  border: 2px solid #00ff88;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  z-index: 100;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+#loginPanel h2 {
+  color: #00ff88;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+#playerName {
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 2px solid #00ff88;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  width: 200px;
+  background: #ffffff;
+  color: #000000;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+#playerName:focus {
+  border-color: #00cc66;
+  box-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
+}
+
+#playerName::placeholder {
+  color: #666666;
+}
+
+button {
+  background: #00ff88;
+  color: #000000;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 3px;
+  font-weight: bold;
+  transition: background 0.3s;
+  outline: none;
+}
+
+button:hover {
+  background: #00cc66;
+}
+
+button:focus {
+  box-shadow: 0 0 5px rgba(0, 255, 136, 0.7);
+}
+
+#gameArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 500px;
+}
+
+#gameHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
+  border: 2px solid #00ff88;
+  margin-bottom: 3px;
+  box-sizing: border-box;
+}
+
+#currentScore {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffd700;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+#playerInfo {
+  font-size: 14px;
+  color: #00ff88;
+}
+
+#playerDisplay {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+#gameCanvas {
+  border: 3px solid #00ff88;
+  background: linear-gradient(to bottom, #000033, #000066);
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0,255,136,0.3);
+  width: 400px;
+  height: 600px;
+  max-width: 100%;
+}
+
+#gameControls {
+  display: flex;
+  gap: 8px;
+  margin-top: 3px;
+}
+
+#gameOverText {
+  color: #ff4444;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 8px 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+#leaderboardPanel {
+  background: rgba(0, 0, 0, 0.9);
+  padding: 15px;
+  border-radius: 15px;
+  margin-top: 10px;
+  border: 2px solid #00ff88;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  box-sizing: border-box;
+}
+
+#leaderboardPanel h3 {
+  color: #00ff88;
+  margin-top: 0;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+#leaderboardTable {
+  width: 100%;
+}
+
+.leaderboard-header {
+  display: grid;
+  grid-template-columns: 50px 1fr 70px;
+  gap: 8px;
+  padding: 8px;
+  background: #00ff88;
+  color: #000000;
+  font-weight: bold;
+  border-radius: 8px 8px 0 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+#scoreList {
+  background: rgba(0, 255, 136, 0.1);
+  border-radius: 0 0 8px 8px;
+  min-height: 200px;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.score-item {
+  display: grid;
+  grid-template-columns: 50px 1fr 70px;
+  gap: 8px;
+  padding: 8px;
+  border-bottom: 1px solid rgba(0, 255, 136, 0.3);
+  font-weight: bold;
+  text-align: center;
+  transition: background 0.3s;
+  font-size: 13px;
+}
+
+.score-item:hover {
+  background: rgba(0, 255, 136, 0.2);
+}
+
+.score-item:nth-child(1) {
+  background: rgba(255, 215, 0, 0.3);
+  color: #ffd700;
+}
+
+.score-item:nth-child(2) {
+  background: rgba(192, 192, 192, 0.3);
+  color: #c0c0c0;
+}
+
+.score-item:nth-child(3) {
+  background: rgba(205, 127, 50, 0.3);
+  color: #cd7f32;
+}
+
+.empty-slot {
+  color: #666666;
+  font-style: italic;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 480px) {
+  body {
+    padding: 5px;
+  }
+  
+  #gameCanvas {
+    width: 350px;
+    height: 525px;
+  }
+  
+  #gameHeader {
+    padding: 6px 10px;
+  }
+  
+  #currentScore {
+    font-size: 16px;
+  }
+  
+  #playerInfo {
+    font-size: 12px;
+  }
+  
+  .leaderboard-header {
+    grid-template-columns: 40px 1fr 60px;
+    font-size: 12px;
+    padding: 6px;
+  }
+  
+  .score-item {
+    grid-template-columns: 40px 1fr 60px;
+    font-size: 11px;
+    padding: 6px;
+  }
+}

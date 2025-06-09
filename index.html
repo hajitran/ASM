@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gaming Hub - Tetris & Shooter</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header class="main-header">
+    <nav class="navbar">
+      <div class="nav-brand">
+        <h1>🎮 Gaming Hub</h1>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="#home">Trang chủ</a></li>
+        <li><a href="#featured">Nổi bật</a></li>
+        <li><a href="#all-games">Tất cả game</a></li>
+        <li><a href="#leaderboards">Bảng xếp hạng</a></li>
+        <li><a href="#about">Giới thiệu</a></li>
+        <li><a href="#contact">Liên hệ</a></li> <!-- Add this line -->
+        <li id="authSection">
+          <button class="auth-btn" id="loginBtn">Đăng nhập</button>
+          <button class="auth-btn" id="signupBtn">Đăng ký</button>
+        </li>
+        <li id="userSection" style="display: none;">
+          <span class="welcome-text">Xin chào, <span id="currentUser"></span>!</span>
+          <button class="auth-btn logout-btn" id="logoutBtn">Đăng xuất</button>
+        </li>
+      </ul>
+
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+      <div class="hero-content">
+        <h2>Chào mừng đến với Gaming Hub</h2>
+        <p>Khám phá những trò chơi tuyệt vời ngay trên trình duyệt của bạn!</p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number">4</span> <!-- Updated from 3 to 4 -->
+            <span class="stat-label">Trò chơi</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">1000+</span>
+            <span class="stat-label">Người chơi</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">Hỗ trợ</span> <!-- Updated from "Hoạt động" to "Hỗ trợ" -->
+          </div>
+        </div>
+
+        <a href="#featured" class="cta-button">Khám phá ngay</a>
+      </div>
+    </section>
+
+    <!-- Featured Game Section -->
+    <section id="featured" class="featured-section">
+      <div class="container">
+        <h2>🌟 Trò chơi nổi bật</h2>
+        <p class="section-subtitle">Game được chơi nhiều nhất tuần này</p>
+        <div class="featured-game-card">
+          <div class="featured-game-content">
+            <div class="featured-game-info">
+              <h3>🎮 Tetris Classic</h3>
+              <p class="featured-description">
+                Trò chơi xếp hình kinh điển với đồ họa hiện đại và gameplay mượt mà.
+                Thử thách bản thân với tốc độ ngày càng tăng và cạnh tranh với người chơi khác.
+              </p>
+              <div class="featured-stats">
+                <div class="featured-stat">
+                  <span class="stat-icon">⭐</span>
+                  <span>4.8/5</span>
+                </div>
+                <div class="featured-stat">
+                  <span class="stat-icon">🎮</span>
+                  <span>1.2B lượt chơi</span>
+                </div>
+                <div class="featured-stat">
+                  <span class="stat-icon">👥</span>
+                  <span>Đang online: 2.3K</span>
+                </div>
+              </div>
+              <button class="featured-play-btn" onclick="openGame('tetris')">
+                <span class="btn-icon">🎮</span>
+                Chơi ngay
+              </button>
+            </div>
+            <div class="featured-game-preview">
+              <div class="tetris-showcase">
+                <div class="tetris-board">
+                  <div class="tetris-blocks-demo">
+                    <div class="demo-block block-1"></div>
+                    <div class="demo-block block-2"></div>
+                    <div class="demo-block block-3"></div>
+                    <div class="demo-block block-4"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- All Games Section -->
+    <section id="all-games" class="all-games-section">
+      <div class="container">
+        <h2>🎯 Tất cả trò chơi</h2>
+        <p class="section-subtitle">Bộ sưu tập game đầy đủ của chúng tôi</p>
+
+        <div class="games-filter">
+          <button class="filter-btn active" data-filter="all">Tất cả</button>
+          <button class="filter-btn" data-filter="puzzle">Puzzle</button>
+          <button class="filter-btn" data-filter="action">Hành động</button>
+          <button class="filter-btn" data-filter="arcade">Arcade</button>
+        </div>
+
+        <div class="games-grid">
+          <div class="game-card" data-category="puzzle">
+            <div class="game-thumbnail tetris-bg">
+              <div class="game-overlay">
+                <div class="play-overlay">
+                  <span class="play-icon">▶</span>
+                </div>
+              </div>
+              <div class="tetris-preview">
+                <div class="tetris-blocks">
+                  <div class="block block-1"></div>
+                  <div class="block block-2"></div>
+                  <div class="block block-3"></div>
+                  <div class="block block-4"></div>
+                </div>
+              </div>
+            </div>
+            <div class="game-info">
+              <h3>🎮 Tetris Classic</h3>
+              <p>Trò chơi xếp hình kinh điển với đồ họa hiện đại</p>
+              <div class="game-stats">
+                <span>⭐ 4.8/5</span>
+                <span>🎮 1.2B lượt chơi</span>
+              </div>
+              <div class="game-tags">
+                <span class="tag">Puzzle</span>
+                <span class="tag">Classic</span>
+              </div>
+              <button class="play-button" onclick="openGame('tetris')">Chơi ngay</button>
+            </div>
+          </div>
+
+          <div class="game-card" data-category="action">
+            <div class="game-thumbnail shooter-bg">
+              <div class="game-overlay">
+                <div class="play-overlay">
+                  <span class="play-icon">▶</span>
+                </div>
+              </div>
+              <div class="shooter-preview">
+                <div class="bullets">💥 💥 💥</div>
+                <div class="enemies">👾 👾 👾</div>
+                <div class="airplane">🚀</div>
+              </div>
+            </div>
+            <div class="game-info">
+              <h3>🚀 Game Bắn Máy Bay</h3>
+              <p>Điều khiển máy bay và tiêu diệt kẻ thù từ không gian</p>
+              <div class="game-stats">
+                <span>⭐ 4.5/5</span>
+                <span>🎮 850M lượt chơi</span>
+              </div>
+              <div class="game-tags">
+                <span class="tag">Action</span>
+                <span class="tag">Shooter</span>
+              </div>
+              <button class="play-button" onclick="openGame('shooter')">Chơi ngay</button>
+            </div>
+          </div>
+
+          <div class="game-card" data-category="arcade">
+            <div class="game-thumbnail snake-bg">
+              <div class="game-overlay">
+                <div class="play-overlay">
+                  <span class="play-icon">▶</span>
+                </div>
+              </div>
+              <div class="snake-preview">
+                <div class="snake-body">🐍</div>
+                <div class="snake-food">🍎</div>
+              </div>
+            </div>
+            <div class="game-info">
+              <h3>🐍 Snake Game</h3>
+              <p>Trò chơi rắn săn mồi cổ điển với đồ họa hiện đại</p>
+              <div class="game-stats">
+                <span>⭐ 4.7/5</span>
+                <span>🎮 950M lượt chơi</span>
+              </div>
+              <div class="game-tags">
+                <span class="tag">Arcade</span>
+                <span class="tag">Classic</span>
+              </div>
+              <button class="play-button" onclick="openGame('snake')">Chơi ngay</button>
+            </div>
+          </div>
+
+          <div class="game-card" data-category="arcade">
+            <div class="game-thumbnail" style="background: linear-gradient(45deg, #ff9800, #ff5722);">
+              <div class="game-overlay">
+                <div class="play-overlay">
+                  <span class="play-icon">▶</span>
+                </div>
+              </div>
+              <div
+                style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+                <div style="font-size: 3rem; animation: bounce 1.5s ease-in-out infinite;">🐭</div>
+                <div style="font-size: 1.5rem; margin-top: 10px;">🔨</div>
+              </div>
+            </div>
+            <div class="game-info">
+              <h3>🐭 Whack a Mouse</h3>
+              <p>Đập chuột nhanh nhất có thể để ghi điểm cao</p>
+              <div class="game-stats">
+                <span>⭐ 4.6/5</span>
+                <span>🎮 500M lượt chơi</span>
+              </div>
+              <div class="game-tags">
+                <span class="tag">Arcade</span>
+                <span class="tag">Reflex</span>
+              </div>
+              <button class="play-button" onclick="openGame('mouse')">Chơi ngay</button>
+            </div>
+          </div>
+
+
+
+          <div class="game-card coming-soon" data-category="puzzle">
+            <div class="game-thumbnail">
+              <div class="coming-soon-badge">Sắp ra mắt</div>
+              <div class="coming-soon-content">
+                <span class="coming-soon-icon">🧩</span>
+              </div>
+            </div>
+            <div class="game-info">
+              <h3>Puzzle Master</h3>
+              <p>Trò chơi giải đố thử thách trí tuệ</p>
+              <div class="game-stats">
+                <span>⭐ --</span>
+                <span>🎮 -- lượt chơi</span>
+              </div>
+              <div class="game-tags">
+                <span class="tag">Puzzle</span>
+                <span class="tag">New</span>
+              </div>
+              <button class="play-button disabled" disabled>Sắp ra mắt</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leaderboards Section -->
+    <section id="leaderboards" class="leaderboards-section">
+      <div class="container">
+        <h2>🏆 Bảng Xếp Hạng</h2>
+        <p class="section-subtitle">Top người chơi xuất sắc nhất</p>
+        <div class="leaderboards-grid">
+          <div class="leaderboard-card">
+            <h3>🎮 Tetris Classic</h3>
+            <div class="leaderboard-table-container">
+              <table class="leaderboard-table">
+                <thead>
+                  <tr>
+                    <th>Hạng</th>
+                    <th>Tên</th>
+                    <th>Điểm</th>
+                  </tr>
+                </thead>
+                <tbody id="tetrisLeaderboard"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="leaderboard-card">
+            <h3>🚀 Game Bắn Máy Bay</h3>
+            <div class="leaderboard-table-container">
+              <table class="leaderboard-table">
+                <thead>
+                  <tr>
+                    <th>Hạng</th>
+                    <th>Tên</th>
+                    <th>Điểm</th>
+                  </tr>
+                </thead>
+                <tbody id="shooterLeaderboard"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="leaderboard-card">
+            <h3>🐍 Snake Game</h3>
+            <div class="leaderboard-table-container">
+              <table class="leaderboard-table">
+                <thead>
+                  <tr>
+                    <th>Hạng</th>
+                    <th>Tên</th>
+                    <th>Điểm</th>
+                  </tr>
+                </thead>
+                <tbody id="snakeLeaderboard"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="leaderboard-card">
+            <h3>🐭 Whack a Mouse</h3>
+            <div class="leaderboard-table-container">
+              <table class="leaderboard-table">
+                <thead>
+                  <tr>
+                    <th>Hạng</th>
+                    <th>Tên</th>
+                    <th>Điểm</th>
+                  </tr>
+                </thead>
+                <tbody id="mouseLeaderboard"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+      <div class="container">
+        <h2>Về Gaming Hub</h2>
+        <p>Gaming Hub là nền tảng game trực tuyến miễn phí, mang đến những trải nghiệm giải trí tuyệt vời ngay trên
+          trình duyệt.</p>
+        <div class="features">
+          <div class="feature">
+            <h3>🚀 Nhanh chóng</h3>
+            <p>Tải game trong tích tắc</p>
+          </div>
+          <div class="feature">
+            <h3>📱 Đa nền tảng</h3>
+            <p>Chơi trên mọi thiết bị</p>
+          </div>
+          <div class="feature">
+            <h3>🆓 Miễn phí</h3>
+            <p>Hoàn toàn không mất phí</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <p>&copy; 2025 Gaming Hub. Tất cả quyền được bảo lưu.</p>
+    </div>
+  </footer>
+
+  <!-- Authentication Modal -->
+  <div id="authModal" class="auth-modal">
+    <div class="auth-modal-content">
+      <div class="auth-modal-header">
+        <h3 id="authModalTitle">Đăng nhập</h3>
+        <button class="close-button" id="closeAuthModal">&times;</button>
+      </div>
+      <div class="auth-modal-body">
+        <!-- Login Form -->
+        <div id="loginForm" class="auth-form">
+          <div class="input-group">
+            <label for="loginUsername">Tên đăng nhập</label>
+            <input type="text" id="loginUsername" placeholder="Nhập tên đăng nhập" required>
+          </div>
+          <div class="input-group">
+            <label for="loginPassword">Mật khẩu</label>
+            <input type="password" id="loginPassword" placeholder="Nhập mật khẩu" required>
+          </div>
+          <button type="button" class="auth-submit-btn" id="loginSubmit">Đăng nhập</button>
+          <p class="auth-switch">
+            Chưa có tài khoản? <a href="#" id="showSignup">Đăng ký ngay</a>
+          </p>
+        </div>
+
+        <!-- Signup Form -->
+        <div id="signupForm" class="auth-form" style="display: none;">
+          <div class="input-group">
+            <label for="signupUsername">Tên đăng nhập</label>
+            <input type="text" id="signupUsername" placeholder="Nhập tên đăng nhập" required>
+          </div>
+          <div class="input-group">
+            <label for="signupEmail">Email</label>
+            <input type="email" id="signupEmail" placeholder="Nhập email" required>
+          </div>
+          <div class="input-group">
+            <label for="signupPassword">Mật khẩu</label>
+            <input type="password" id="signupPassword" placeholder="Nhập mật khẩu" required>
+          </div>
+          <div class="input-group">
+            <label for="confirmPassword">Xác nhận mật khẩu</label>
+            <input type="password" id="confirmPassword" placeholder="Nhập lại mật khẩu" required>
+          </div>
+          <button type="button" class="auth-submit-btn" id="signupSubmit">Đăng ký</button>
+          <p class="auth-switch">
+            Đã có tài khoản? <a href="#" id="showLogin">Đăng nhập</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Game Modal -->
+  <div id="gameModal" class="game-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="gameTitle">Game</h3>
+        <button class="close-button" onclick="closeGame()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <iframe id="gameFrame" src="" width="100%" height="800" frameborder="0"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script src="homepage.js"></script>
+</body>
+
+
+<!-- Contact Section -->
+<section id="contact" class="contact-section">
+  <div class="container">
+    <h2>📞 Liên hệ với chúng tôi</h2>
+    <p class="section-subtitle">Kết nối với Gaming Hub qua các kênh mạng xã hội</p>
+    
+    <!-- Social Media Links -->
+    <div class="social-contact">
+      <div class="social-card">
+        <div class="social-icon">📘</div>
+        <h3>Facebook</h3>
+        <a href="https://www.facebook.com/thien.inh.346430/" target="_blank" class="social-link">
+          @thien.inh.346430
+        </a>
+      </div>
+      
+      <div class="social-card">
+        <div class="social-icon">📷</div>
+        <h3>Instagram</h3>
+        <a href="https://instagram.com/yourusername" target="_blank" class="social-link">
+          @YourInstagram
+        </a>
+      </div>
+      
+      <div class="social-card">
+        <div class="social-icon">🐦</div>
+        <h3>Twitter</h3>
+        <a href="https://x.com/Hajitran_" target="_blank" class="social-link">
+          @Hajitran_
+        </a>
+      </div>
+      
+      <div class="social-card">
+        <div class="social-icon">📺</div>
+        <h3>YouTube</h3>
+        <a href="https://www.youtube.com/@cindo27" target="_blank" class="social-link">
+          @cindo27
+        </a>
+      </div>
+      
+      <div class="social-card">
+        <div class="social-icon">🎵</div>
+        <h3>TikTok</h3>
+        <a href="https://www.tiktok.com/@minhnguynthnh97" target="_blank" class="social-link">
+          @minhnguynthnh97
+        </a>
+      </div>
+    </div>
+    
+    <!-- Team Section -->
+    <div class="team-section">
+      <h2>👥 Đội ngũ phát triển</h2>
+      <p class="section-subtitle">Gặp gỡ những người tạo ra Gaming Hub</p>
+      
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="member-avatar">👨‍💻</div>
+          <h3>Nguyễn Văn A</h3>
+          <p class="member-role">Lead Developer</p>
+          <p class="member-description">Chuyên gia phát triển game với 5 năm kinh nghiệm</p>
+        </div>
+        
+        <div class="team-member">
+          <div class="member-avatar">👩‍🎨</div>
+          <h3>Trần Thị B</h3>
+          <p class="member-role">UI/UX Designer</p>
+          <p class="member-description">Thiết kế giao diện người dùng sáng tạo và thân thiện</p>
+        </div>
+        
+        <div class="team-member">
+          <div class="member-avatar">👨‍🔧</div>
+          <h3>Lê Văn C</h3>
+          <p class="member-role">Backend Developer</p>
+          <p class="member-description">Xây dựng hệ thống backend mạnh mẽ và ổn định</p>
+        </div>
+        
+        <div class="team-member">
+          <div class="member-avatar">👩‍💼</div>
+          <h3>Phạm Thị D</h3>
+          <p class="member-role">Product Manager</p>
+          <p class="member-description">Quản lý sản phẩm và chiến lược phát triển</p>
+        </div>
+        
+        <div class="team-member">
+          <div class="member-avatar">👨‍🎮</div>
+          <h3>Hoàng Văn E</h3>
+          <p class="member-role">Game Tester</p>
+          <p class="member-description">Đảm bảo chất lượng và trải nghiệm game tốt nhất</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🚀 Game Bắn Máy Bay</title>
+  <link rel="stylesheet" href="shooter.css">
+</head>
+<body>
+  <div id="loginPanel">
+    <h2>🚀 Game Bắn Máy Bay</h2>
+    <input type="text" id="playerName" placeholder="Nhập tên của bạn" autocomplete="off" />
+    <br>
+    <button id="loginBtn">Đăng nhập</button>
+  </div>
+
+  <div id="gameArea" style="display: none;">
+    <div id="gameHeader">
+      <div id="currentScore">Score: 0</div>
+      <div id="playerInfo">Player: <span id="playerDisplay"></span></div>
+    </div>
+    
+    <canvas id="gameCanvas" width="400" height="600"></canvas>
+    
+    <div id="gameControls">
+      <button id="startBtn">Bắt đầu</button>
+      <button id="restartBtn" style="display: none;">Chơi lại</button>
+    </div>
+    <div id="gameOverText"></div>
+  </div>
+
+  <div id="leaderboardPanel" style="display: none;">
+    <h3>🏆 Bảng Xếp Hạng</h3>
+    <div id="leaderboardTable">
+      <div class="leaderboard-header">
+        <span>Hạng</span>
+        <span>Tên</span>
+        <span>Điểm</span>
+      </div>
+      <div id="scoreList"></div>
+    </div>
+  </div>
+
+  <script src="shooter.js"></script>
+</body>
+</html>

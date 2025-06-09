@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tetris Classic</title>
+  <link rel="stylesheet" href="tetris.css">
+</head>
+<body>
+  <div id="container">
+    <div id="login">
+      <h2>🎮 Tetris Classic</h2>
+      <input type="text" id="username" placeholder="Nhập tên của bạn" />
+      <button id="startBtn">Bắt đầu chơi</button>
+    </div>
+
+    <div id="game">
+      <div id="gameLayout">
+        <div id="leftPanel">
+          <div id="scoreBar">
+            <div id="score">Điểm: 0</div>
+            <button id="pauseBtn">Pause</button>
+          </div>
+          <canvas id="tetris" width="300" height="600"></canvas>
+        </div>
+        
+        <div id="rightPanel">
+          <div id="previewBox">
+            <h3>🔮 Next Piece</h3>
+            <canvas id="previewCanvas" width="120" height="120"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="leaderboardOverlay">
+    <div id="leaderboardBox">
+      <h2>🏆 Bảng Xếp Hạng</h2>
+      <table id="leaderboardTable">
+        <thead>
+          <tr><th>Hạng</th><th>Tên</th><th>Điểm</th></tr>
+        </thead>
+        <tbody id="leaderboardBody"></tbody>
+      </table>
+      <button id="restartBtn">Chơi lại</button>
+    </div>
+  </div>
+
+  <script src="tetris.js"></script>
+</body>
+</html>
