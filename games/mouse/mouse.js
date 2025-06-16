@@ -8,7 +8,7 @@ let score = 0;
 let timeLeft = 30;
 let timerId;
 let popupTimerId;
-let gamePaused = false;
+let gamePaused = true;
 let popupInterval = 1500;
 let countdownInterval;
 let gameRunning = false;
